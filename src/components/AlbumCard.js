@@ -57,7 +57,7 @@ const AlbumCard = () => {
 
   const renderCards = () => {
     return albums.map((album) => (
-      <div className="class-body-top">
+      <div key={album.id} className="class-body-top">
         <img className="card-img" src={album.img} />
         <p className="card-title">{album.title}</p>
         <p className="card-text">{album.releaseDate}</p>

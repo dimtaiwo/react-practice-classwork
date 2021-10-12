@@ -46,4 +46,13 @@ test('renders header with default Favorite Artist', () => {
     expect(likeBtnState).toHaveClass("fa fa-heart")
   
   });
+  test('renders like and you can ulike ', () => {
+    render(<AlbumCard />);
+    const likeBtnArr = screen.getAllByLabelText('icon');
+    fireEvent.click(likeBtnArr[0])
+    fireEvent.click(likeBtnArr[0])
+    const likeBtnState = likeBtnArr[0]
+    expect(likeBtnState).toHaveClass("fa fa-heart-o")
+  
+  });
   
