@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LikesComponent from "./LikesComponent";
 
 const AlbumCard = () => {
@@ -12,27 +12,46 @@ const AlbumCard = () => {
     },
     {
       id: 2,
-      title: "Rubber Soul",
+      title: "yesterday",
       img: "https://upload.wikimedia.org/wikipedia/en/7/74/Rubber_Soul.jpg",
       releaseDate: 1965,
       liked: false,
     },
     {
       id: 3,
-      title: "Yellow Submarines",
+      title: "Yellow Submarine",
       img: "https://upload.wikimedia.org/wikipedia/en/a/ac/TheBeatles-YellowSubmarinealbumcover.jpg",
       releaseDate: 1969,
       liked: false,
     },
   ]);
 
+  const [albumid, setId] = useState(0);
+  const [lyrics, setLyrics] = useState("");
+
+  const handleApiCall = (albums) => {
+    return albums[albumid];
+  };
+
+  useEffect(() => {
+    const album = handleApiCall(albums);
+    const handleFetch = async () => {
+      const data = await fetch(
+        `https://api.lyrics.ovh/v1/beatles/${album.title}`
+      );
+      const lyrics = await data.json();
+      setLyrics(lyrics.lyrics);
+    };
+
+    handleFetch();
+  }, [albums]);
+
   const handleClick = (album) => {
-    console.log(album);
     const newAlbums = [...albums];
-    console.log(newAlbums);
     const index = albums.indexOf(album);
     newAlbums[index] = { ...albums[index] };
     newAlbums[index].liked = !newAlbums[index].liked;
+    setId(index);
     setAlbum(newAlbums);
   };
 
@@ -56,6 +75,7 @@ const AlbumCard = () => {
       <div className="card" style={{ width: "400px" }}>
         {renderCards()}
       </div>
+      <p>{lyrics}</p>
     </section>
   );
 };
