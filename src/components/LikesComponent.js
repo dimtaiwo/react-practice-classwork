@@ -5,7 +5,7 @@ const LikesComponent = (props) => {
 
   return (
     <div>
-      <i onClick={props.onClick} className={iconClass} aria-hidden="true"></i>
+      <i onClick={props.onClick} className={iconClass} aria-hidden="true" aria-label="icon"></i>
     </div>
   );
 };
