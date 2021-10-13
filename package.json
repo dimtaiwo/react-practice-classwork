@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js",
-<<<<<<< HEAD
-    "test": "jest --watchAll  ./src/test/setupTests.js"
-=======
     "test": "jest --watchAll --setupFilesAfterEnv ./src/test/setupTests.js"
->>>>>>> 660ae67406ab2dbe42e96089bbc47a64aefb63f2
   },
   "repository": {
     "type": "git",
@@ -47,6 +43,7 @@
     "react": "^17.0.1",
     "react-bootstrap-icons": "^1.5.0",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.3.0",
     "url-loader": "^4.1.1"
   },
   "jest": {

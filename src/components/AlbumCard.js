@@ -42,8 +42,8 @@ const AlbumCard = () => {
       const lyrics = await data.json();
       setLyrics(lyrics.lyrics);
     };
-
-    handleFetch();
+    if(album.liked)handleFetch();
+    
   }, [albums]);
 
   const handleClick = (album) => {
@@ -70,11 +70,14 @@ const AlbumCard = () => {
   };
 
   return (
-    <section>
-      <h5>Albums</h5>
-      <div className="card" style={{ width: "400px" }}>
+    <section className="card-deck container">
+      <div className="row row-cols-sm-2 justify-content-center">
+
+      <div className="card text-center col" >
         {renderCards()}
       </div>
+      </div>
+   
       <p>{lyrics}</p>
     </section>
   );
