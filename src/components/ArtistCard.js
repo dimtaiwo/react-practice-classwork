@@ -7,7 +7,7 @@ const ArtistCard = () => {
   });
   const [pokemonCaught, setPokemonCaught] = useState(2);
 
-  const increasePokemonCount = () => setPokemonCaught(pokemonCaught + 1);
+ 
 
   return (
     <div>

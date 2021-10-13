@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js",
-<<<<<<< HEAD
-    "test": "jest --watchAll  ./src/test/setupTests.js"
-=======
     "test": "jest --watchAll --setupFilesAfterEnv ./src/test/setupTests.js"
->>>>>>> 660ae67406ab2dbe42e96089bbc47a64aefb63f2
   },
   "repository": {
     "type": "git",

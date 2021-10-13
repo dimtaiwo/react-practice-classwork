@@ -57,26 +57,31 @@ const AlbumCard = () => {
 
   const renderCards = () => {
     return albums.map((album) => (
-      <div key={album.id} className="class-body-top">
-        <img className="card-img" src={album.img} />
-        <p className="card-title">{album.title}</p>
-        <p className="card-text">{album.releaseDate}</p>
-        <LikesComponent
-          onClick={() => handleClick(album)}
-          liked={album.liked}
-        />
+      <div className="card col-4 ml-5 p-4" style={{ width: "18rem" }}>
+        <img className="card-img-top" src={album.img} alt="Card image cap" />
+        <div className="card-body">
+          <h5 className="card-title">{album.title}</h5>
+          <p className="card-text">{album.releaseDate}</p>
+          <LikesComponent
+            onClick={() => handleClick(album)}
+            liked={album.liked}
+          />
+        </div>
       </div>
     ));
   };
 
   return (
-    <section>
-      <h5>Albums</h5>
-      <div className="card" style={{ width: "400px" }}>
-        {renderCards()}
+    <div className="container">
+      Albums
+      <div className="container">
+        <div className="row">{renderCards()}</div>
+
+        <p className="mt-5" style={{ fontSize: "18px" }}>
+          {lyrics}
+        </p>
       </div>
-      <p>{lyrics}</p>
-    </section>
+    </div>
   );
 };
 
