@@ -42,8 +42,7 @@ const AlbumCard = () => {
       const lyrics = await data.json();
       setLyrics(lyrics.lyrics);
     };
-
-    handleFetch();
+    if (album.liked) handleFetch();
   }, [albums]);
 
   const handleClick = (album) => {
@@ -72,16 +71,13 @@ const AlbumCard = () => {
   };
 
   return (
-    <div className="container">
-      Albums
-      <div className="container">
-        <div className="row">{renderCards()}</div>
-
-        <p className="mt-5" style={{ fontSize: "18px" }}>
-          {lyrics}
-        </p>
+    <section className="card-deck container">
+      <div className="row row-cols-sm-2 justify-content-center">
+        <div className="card text-center col">{renderCards()}</div>
       </div>
-    </div>
+
+      <p>{lyrics}</p>
+    </section>
   );
 };
 
